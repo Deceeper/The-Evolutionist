@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.csproj.user
+
+# 编译缓存
+bin/
+obj/
+TestResults/
+
+# 模组编译产物
+mod/plugins/
+*.dll
+*.pdb
+*.deps.json
+
+# 系统文件
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,27 @@
+LINEAGE : GW_C06 : 4 : Small Centipede-0.5, Centipede-{0.3}-0.5, Centipede-{0.6}-0.5, Centipede-{0.9}-0.5, Red Centipede-0
+GW_B01 : 5-Leech-10, 3-Leech-5, 9-Garbage Worm-2
+GW_C01 : 10-Garbage Worm-4, 3-Leech-7, 5-Leech-7, 4-TentaclePlant-{PreCycle}, 3-Salamander-{PreCycle}
+GW_B04 : 3-Leech-7, 4-Leech-7
+GW_D01 : 7-Leech-8, 19-Garbage Worm-5, 5-TentaclePlant-{PreCycle}, 9-Salamander-{PreCycle}
+GW_E02 : 7-Pink, 5-Green, 8-Mimic-{14}, 3-CicadaB-2, 4-CicadaB, 19-Garbage Worm-3
+GW_B09 : 2-Leech-10, 3-Snail-2, 4-Garbage Worm-2
+GW_D02 : 6-Leech-10, 3-Snail, 4-Snail, 5-Snail
+GW_E01 : 7-Leech-10, 2-CicadaB, 3-CicadaB
+GW_C10 : 2-Leech-7, 3-Snail-3
+GW_C08 : 3-Leech-10, 5-Snail-4, 3-Daddy-{PreCycle}
+GW_C04 : 13-Garbage Worm-2, 6-Leech-3, 7-Leech-3, 4-Salamander-{PreCycle}-2
+GW_A08 : 2-Snail-2, 3-Snail-3
+GW_C06 : 3-Mimic, 4-Small Centipede-2, 4-Salamander-{PreCycle}
+GW_A10 : 3-Leech-4
+GW_B03 : 6-Leech-5, 6-Bro-{PreCycle}
+LINEAGE : GW_E02 : 6 : NONE-0.05, Mimic-{17}-0.5, Mimic-{21}-0.5, TentaclePlant-0
+LINEAGE : GW_C09 : 5 : NONE-0.07, Bro-0.5, NONE-0.07, Bro-0
+LINEAGE : GW_C09 : 6 : NONE-0.01, Bro-0.5, NONE-0.01, Bro-0
+OFFSCREEN : 0-Vulture-3, 0-KingVulture-2, 0-Scavenger-30, 0-Elite
+GW_A04 : 3-Small Centipede-3, 3-Centipede
+GW_C09 : 4-Terror
+GW_B02 : 4-Daddy-{PreCycle}
+GW_EDGE02 : 5-Leech-12, 8-Leech-6
+GW_EDGE03 : 17-Leech-9, 18-Leech-12, 5-DropBug-2, 7-CicadaB, 8-CicadaA-2, 17-Salamander-{PreCycle}, 18-Salamander-{PreCycle}
+GW_B08 : 2-CicadaB, 3-CicadaA-2
+LINEAGE : GW_C03 : 5 : Green-0.2, Yellow-0.5, Red-0

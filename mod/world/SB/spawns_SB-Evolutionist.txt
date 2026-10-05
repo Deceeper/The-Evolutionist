@@ -1,0 +1,42 @@
+SB_A04 : 3-TentaclePlant
+SB_G03 : 3-TentaclePlant, 4-Centipede, 5-Centipede, 6-Centipede
+SB_J01 : 4-Centipede, 6-Centipede
+LINEAGE : SB_B01 : 3 : BigSpider-0.5, SpitterSpider-0.3, Red-0
+LINEAGE : SB_B01 : 4 : Caramel-0.5, Black-0.3, Red-0
+LINEAGE : SB_A01 : 3 : Small Centipede-0.6, Centipede-{0.4}-0.3, Centipede-{0.8}-0.7, Red Centipede-0
+SB_A01 : 3-Small Centipede-4, 4-Centipede-2
+SB_I01 : 8-Black, 9-Black, 10-Black, 11-Black, 12-Black, 13-Black
+SB_C02 : 3-TentaclePlant, 4-JetFish, 2-Eel-{PreCycle}-2
+SB_TESTC : 2-TentaclePlant, 5-Caramel, 4-Small Centipede-5, 5-Salamander-{PreCycle}
+LINEAGE : SB_B02 : 4 : MotherSpider-0.5, Black-0.2, Red-0
+LINEAGE : SB_B02 : 5 : Blue-0.5, White-0.5, Black-0.5, Red-0
+OFFSCREEN : 0-Miros-7, 0-Scavenger-18, 0-Leviathan
+SB_C01 : 2-TentaclePlant, 7-Black, 9-Black, 4-DropBug
+SB_G02 : 3-DropBug-2, 4-Centipede, 10-TentaclePlant, 5-Centipede-2, 6-TentaclePlant, 5-Salamander-{PreCycle}
+SB_E02 : 3-DropBug-2, 6-TentaclePlant, 7-TentaclePlant, 5-Centipede, 10-Centipede, 8-Centipede
+SB_B02 : 3-TentaclePlant, 2-DropBug, 3-Salamander-{PreCycle}, 2-Eel-{PreCycle}
+SB_J02 : 3-Cyan-3, 5-JetFish, 5-Eel-{PreCycle}-2
+SB_H03 : 10-Centipede-2, 6-SpitterSpider, 7-BigSpider-3, 8-BigSpider-2, 9-BigSpider-2, 6-Centipede-2
+SB_C07 : 2-Salamander, 3-Dropbug
+SB_H02 : 4-Centipede-3, 5-BigSpider-5, 6-SpitterSpider-2, 7-Centipede-4, 5-Red Centipede
+SB_F02 : 5-Black, 6-Black, 7-Black, 8-Black-2
+SB_E04 : 6-SpitterSpider, 6-MotherSpider
+SB_C06 : 3-Black, 4-Black-2
+SB_F01 : 3-SpitterSpider, 4-SpitterSpider-2, 5-BigSpider
+SB_J03 : 8-Black, 7-Black, 4-TentaclePlant, 5-Small Centipede-3, 6-Centipede-3, 5-Salamander-{PreCycle}
+SB_A03 : 3-DropBug, 4-TentaclePlant, 5-Cyan-2
+SB_D04 : 9-Black, 5-BigSpider, 6-BigSpider
+SB_TESTB : 2-Salamander, 3-Small Centipede-4
+SB_E07 : 5-BigSpider, 8-Black-2, 11-MotherSpider
+SB_C10 : 17-Mimic-{21}, 19-Mimic-{11}, 5-BigSpider, 12-SpitterSpider
+SB_GOR01 : 3-Small Centipede-5, 3-Centipede-2, 4-BigSpider-5, 5-Blue, 6-Small Centipede-5
+SB_C11 : 2-Blue
+SB_J10 : 3-TentaclePlant, 4-Centipede-2
+SB_TOPSIDE : 2-BigNeedleWorm, 2-SmallNeedleWorm-3
+SB_G04 : 3-DropBug-2, 15-Black, 17-Black-2, 7-SpitterSpider-2, 6-MotherSpider
+LINEAGE : SB_A03 : 6 : Cyan-0.3, White-0.5, Red-0
+LINEAGE : SB_A04 : 4 : Dropbug-0.4, SpitterSpider-0.4, Red-0
+LINEAGE : SB_J02 : 4 : Jetfish-0.5, Salamander-0
+LINEAGE : SB_C07 : 3 : Salamander-1, Cyan-0
+LINEAGE : SB_E04 : 5 : Eggbug-1, SpitterSpider-0
+LINEAGE : SB_E02 : 4 : Dropbug-0.8, SpitterSpider-0.5, Cyan-0.3, SpitterSpider-0

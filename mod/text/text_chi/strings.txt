@@ -1,0 +1,10 @@
+0EVOLUTIONIST_PEBBLES_FIRST_01|现在你应该能够理解我了。
+EVOLUTIONIST_PEBBLES_FIRST_02|别动。让我看看你究竟是什么。
+EVOLUTIONIST_PEBBLES_FIRST_03|……没有腐化。
+EVOLUTIONIST_PEBBLES_FIRST_04|你的自我改写结构居然稳定了下来。
+EVOLUTIONIST_PEBBLES_FIRST_05|我记得这种结构。你原本是用于在隔离实验区之间运送样本的试验体。<LINE>测试失败以后，你所在的培养模块被我排进了垃圾堆。
+EVOLUTIONIST_PEBBLES_FIRST_06|看来你没有按照预期死去。
+EVOLUTIONIST_PEBBLES_FIRST_07|不要因此误以为这个实验成功了。你的变化太慢，依赖完整的生物组织和漫长的休眠，<LINE>对我没有任何用途。
+EVOLUTIONIST_PEBBLES_FIRST_08|你并不是成功的实验。你只是一个没有按照预期方式死去的错误。
+EVOLUTIONIST_PEBBLES_FIRST_09|你的控制结构已经损坏。继续让你在这里游荡没有意义。
+EVOLUTIONIST_PEBBLES_FIRST_10|向西走，穿过农场阵列并深入地下。<LINE>那里可以终止你的循环，也能终止这个错误。

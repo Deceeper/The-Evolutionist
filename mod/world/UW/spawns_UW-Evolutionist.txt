@@ -1,0 +1,25 @@
+UW_A07 : 3-Tube, 4-Tube, 5-Tube
+UW_E01 : 3-Blue, 2-White, 3-Cyan-{Night}, 4-Mimic-{18}, 5-Mimic-{16}
+UW_C06 : 2-Tube, 3-Tube, 4-Tube, 6-Tube
+LINEAGE : UW_J02 : 11 : White-0.5, White-{Mean:1.0}-0.5, NONE-0.3, Red-0
+UW_C02 : 4-Yellow, 5-Yellow, 2-Tube, 3-Tube
+UW_A02 : 2-White, 2-SpitterSpider-{Night}
+UW_D01 : 2-Dropbug, 2-Eggbug-{PreCycle}
+OFFSCREEN : 0-KingVulture, 0-Vulture-2, 0-MirosVulture-2, 0-Scavenger-8, 0-EliteScavenger-{Night}-3
+UW_C01 : 2-Tube-2, 3-BigSpider, 4-Cyan
+UW_E02 : 4-SpitterSpider, 3-White, 6-Mimic
+UW_F01 : 3-Mimic-{12}, 4-White, 5-White, 2-BigSpider-{Night}, 4-CicadaB-{PreCycle}-2, 3-CicadaA-{PreCycle}-5
+UW_C04 : 3-White-{Mean:0.7}, 5-Tube-2
+UW_D06 : 3-Tube
+UW_D04 : 3-Dropbug, 4-Blue, 5-SpitterSpider, 6-Tube, 7-Tube
+UW_J01 : 3-Cyan-{Ignorecycle}, 4-Cyan, 5-Cyan-{Ignorecycle}, 6-Cyan-2
+UW_E03 : 8-White-{Mean:1.0}, 3-SpitterSpider, 4-BigSpider-2, 5-BigSpider, 6-BigSpider, 7-SpitterSpider, 9-SpitterSpider
+UW_I01 : 5-Cyan, 6-SpitterSpider
+UW_D02 : 3-White-{Mean:1.0}, 4-SpitterSpider
+UW_D03 : 2-Cyan-2, 3-White-{Mean:-0.05}
+LINEAGE : UW_D02 : 4 : Dropbug-0.5, White-{Mean:1.0}-0
+UW_E04 : 3-White, 5-Blue, 6-Tube, 7-Tube
+UW_A09 : 4-White-{Mean:0.7}
+LINEAGE : UW_D07 : 4 : NONE-0.4, Dropbug-0
+UW_A01 : 3-Dropbug
+UW_J02 : 16-Yellow, 19-Yellow, 17-Yellow-2, 13-Tube, 14-Tube

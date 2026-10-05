@@ -1,0 +1,37 @@
+SI_B04 : 2-White
+LINEAGE : SI_C02 : 5 : NONE-0.05, Mimic-{20}-0.5, Mimic-{14}-0.5, TentaclePlant-0
+SI_A18 : 3-Eggbug
+SI_C02 : 6-Eggbug, 5-BigNeedleWorm, 5-SmallNeedleWorm-3, 8-Mimic-{24}, 9-Mimic-{18}
+SI_C08 : 6-Centiwing, 4-Centiwing
+SI_B11 : 2-CicadaA, 2-CicadaB
+SI_C05 : 3-Mimic-{10}, 4-Mimic-{13}, 5-Mimic-{14}, 6-Mimic-{17}
+SI_B12 : 2-BigNeedleWorm, 2-SmallNeedleWorm-3, 1-Small Centipede-{AlternateForm}-3, 1-TentaclePlant-{PreCycle}
+SI_A02 : 2-Blue, 2-Cyan-{PreCycle}
+SI_A17 : 3-White
+SI_A30 : 3-TentaclePlant-{PreCycle}
+SI_B16 : 4-Mimic-{21}, 5-Mimic-{17}, 7-White, 8-Cyan-{PreCycle}
+SI_D08 : 7-Centiwing-2
+SI_A03x : 3-Yellow-3
+LINEAGE : SI_B01 : 4 : Pink-0.5, Blue-0.5, White-0.3, Red-0
+LINEAGE : SI_B01 : 6 : NONE-0.07, Mimic-{17}-0.5, Mimic-{21}-0.5, TentaclePlant-0
+LINEAGE : SI_B09 : 4 : NONE-0.05, Mimic-{18}-0.5, Mimic-{16}-0.5, TentaclePlant-0
+LINEAGE : SI_C02 : 7 : NONE-0.05, Mimic-{20}-0.5, Mimic-{14}-0.5, TentaclePlant-0
+LINEAGE : SI_C01 : 2 : NONE-0.05, Mimic-{12}-0.5, Mimic-{16}-0.5, TentaclePlant-0
+LINEAGE : SI_C01 : 5 : NONE-0.07, TentaclePlant-0
+OFFSCREEN : 0-Vulture-2, 0-KingVulture-4, 0-Scavenger-10
+SI_C01x : 3-Snail-{PreCycle}-2
+SI_D05 : 4-Eggbug, 3-Small Centipede-{AlternateForm}-3, 5-CicadaA, 6-CicadaA
+SI_C07 : 1-Centiwing, 2-Cyan, 3-Cyan, 3-Snail-{PreCycle}-4
+SI_C01 : 4-Yellow-2, 3-Cyan-2, 2-Snail-{PreCycle}-3, 5-Snail-{PreCycle}-2
+SI_D01 : 7-CicadaA-2, 8-CicadaB-2, 9-CicadaB, 10-CicadaB, 5-White, 5-Cyan, 6-EggBug
+SI_C06 : 2-DropBug, 3-Small Centipede-{AlternateForm}-4
+SI_D06 : 5-Yellow, 6-Yellow-2, 7-Yellow, 8-DropBug
+SI_B09 : 5-Cyan-2, 6-Centiwing
+SI_B01 : 5-BigNeedleWorm, 5-SmallNeedleWorm, 4-Snail-{PreCycle}-2, 5-Snail-{PreCycle}-3
+SI_A27 : 3-CicadaB, 4-CicadaA
+SI_B03 : 3-Centiwing
+SI_C09 : 3-Centiwing, 2-Snail-{PreCycle}-2, 3-Snail-{PreCycle}
+SI_F01 : 3-CicadaA-3, 4-CicadaB-2, 11-Cyan, 3-Snail-{PreCycle}-4, 7-Snail-{PreCycle}-2, 11-Snail-{PreCycle}-2
+LINEAGE : SI_B09 : 6 : White-0.5, Cyan-0.5, Red-0
+LINEAGE : SI_C06 : 3 : Centiwing-0.1, RedCentipede-0
+LINEAGE : SI_A23 : 2 : NONE-0.2, Blue-0.5, Cyan-0

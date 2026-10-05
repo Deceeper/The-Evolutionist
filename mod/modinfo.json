@@ -1,0 +1,20 @@
+{
+  "id": "decper.evolutionist",
+  "name": "The Evolutionist",
+  "version": "0.1.0",
+  "authors": "Deceeper",
+  "description": "A slugcat that permanently evolves by consuming creatures.",
+  "requirements": [
+    "moreslugcats",
+    "slime-cubed.slugbase"
+  ],
+  "requirements_names": [
+    "More Slugcats Expansion",
+    "SlugBase"
+  ],
+  "tags": [
+    "Custom Slugcat",
+    "Game Mechanics"
+  ]
+}
+

@@ -1,0 +1,54 @@
+{
+  "id": "Evolutionist",
+  "name": "The Evolutionist",
+  "description": "A predator shaped by every creature it consumes.",
+  "features": {
+    "color": "566675",
+    "custom_colors": [
+      {
+        "name": "Body",
+        "story": "566675"
+      },
+      {
+        "name": "Eyes",
+        "story": "E07958"
+      },
+      {
+        "name": "Tail Pattern",
+        "story": "EDF2F5"
+      }
+    ],
+    "start_room": "GW_C10",
+    "world_state": ["Evolutionist", "Gourmand", "White"],
+    "story_regions": ["SL", "OE", "-LM", "-DM"],
+    "timeline_after": "Red",
+    "timeline_before": "Gourmand",
+    "food_min": 7,
+    "food_max": 10,
+    "weight": [0.95, 0.9],
+    "walk_speed": [1.0, 0.875],
+    "climb_speed": [1.0, 0.8],
+    "tunnel_speed": [1.0, 0.86],
+    "throw_skill": [0, 0],
+    "lung_capacity": [0.8333333, 0.8333333],
+    "crouch_stealth": [0.6, 0.6],
+    "loudness": [0.75, 0.75],
+    "can_maul": true,
+    "alignments": {
+      "Scavengers": {
+        "like": -1.0,
+        "locked": true
+      }
+    },
+    "diet": {
+      "base": "Red",
+      "corpses": 1.0,
+      "meat": 1.0,
+      "plants": 1.0,
+      "overrides": {
+        "Fly": 1.0
+      }
+    }
+  }
+}
+

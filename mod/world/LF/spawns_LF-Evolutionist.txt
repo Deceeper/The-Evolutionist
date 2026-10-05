@@ -1,0 +1,27 @@
+LF_A05 : 3-Small Centipede-2
+LF_B04 : 4-Small Centipede, 5-Small Centipede-2
+LF_A03 : 3-Small Centipede-2
+LINEAGE : LF_A03 : 3 : Small Centipede-0.5, Centipede-{0.4}-0.5, Centipede-{0.6}-0.5, Centipede-{0.8}-0.5, NONE-0
+LINEAGE : LF_A05 : 4 : Small Centipede-0.5, Centipede-{0.3}-0.5, Centipede-{0.5}-0.5, Centipede-{0.7}-0.5, NONE-0
+LF_D04 : 3-CicadaA-3
+LF_C01 : 2-Green, 3-TentaclePlant-{PreCycle}
+LF_E02 : 2-Green
+LF_A13 : 3-Mimic-{10}, 4-Mimic-{8}, 5-Eggbug
+LF_D02 : 3-BigNeedleWorm, 3-SmallNeedleWorm-2
+LF_E01 : 3-Green, 2-Salamander-{PreCycle}, 3-TentaclePlant-{PreCycle}
+LINEAGE : LF_C03 : 4 : Small Centipede-0.5, Centipede-{0.4}-0.5, Centipede-{0.6}-0.5, Centipede-{0.8}-0.5, NONE-0
+OFFSCREEN : 0-Deer-4, 0-Vulture, 0-KingVulture-2, 0-Scavenger-17
+LF_C03 : 3-Small Centipede-2, 3-Small Centipede-2, 4-Centipede-2
+LF_D06 : 5-Centipede, 5-Small Centipede-2, 4-Small Centipede-2
+LF_F02 : 3-Centiwing, 3-Centiwing, 5-CicadaA-3, 3-CicadaB-{PreCycle}-2, 3-CicadaA-{PreCycle}-4
+LF_D08 : 7-Mimic-{13}, 3-Mimic-{10}, 5-Mimic-{15}, 8-SpitterSpider-2, 9-SpitterSpider, 9-BigSpider-2
+LF_D01 : 6-Salamander-{PreCycle}
+LF_C02 : 6-Caramel, 3-CicadaA-2, 5-CicadaB-{PreCycle}-3, 6-CicadaA-{PreCycle}-3
+LF_D03 : 5-CicadaA, 6-Centipede, 6-Salamander-{PreCycle}
+LF_E04 : 3-Centipede
+LINEAGE : LF_E02 : 3 : Pink-0.5, Cyan-0.3, Red-0
+LINEAGE : LF_D03 : 2 : Blue-0.5, Cyan-0
+LINEAGE : LF_D03 : 3 : Blue-0.5, Cyan-0
+LINEAGE : LF_B03 : 3 : Centipede-0.3, Centipede-0.3, Centipede-{0.75}-0.2, RedCentipede-0
+LINEAGE : LF_C02 : 6 : Pink-0.5, Cyan-0
+LINEAGE : LF_E04 : 5 : Pink-0.3, Pink-0.3, Red-0
