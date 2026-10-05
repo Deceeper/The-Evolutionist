@@ -69,6 +69,10 @@ Evolutionist.csproj  项目文件
 Evolutionist.slnx    Visual Studio 解决方案
 ```
 
+## 设计文档 / Design Documents
+
+- [角色设定、剧情路线与能力权重](docs/README.md)
+
 ## 作者
 
 Deceeper
