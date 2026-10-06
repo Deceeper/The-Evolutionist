@@ -12,69 +12,122 @@ internal static class PebblesStoryService
     private const string RemoveDirectivesEvent = "EVOLUTIONIST_REMOVE_DIRECTIVES";
     private const int DirectiveRemovalDuration = 110;
 
-    private static readonly IReadOnlyList<string> FirstMeetingDialogue = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> FirstMeetingDialogue = new LocalizedDialogueLine[]
     {
-        "现在你应该能够理解我了。",
-        "别动。让我看看你究竟是什么。",
-        "……没有腐化。",
-        "你的自我改写结构居然稳定了下来。",
-        "我记得这种结构。你原本是用于在隔离实验区之间运送样本的试验体。<LINE>测试失败以后，你所在的培养模块被我排进了垃圾堆。",
-        "看来你没有按照预期死去。",
-        "不要因此误以为这个实验成功了。你的变化太慢，依赖完整的生物组织和漫长的休眠，<LINE>对我没有任何用途。",
-        "你并不是成功的实验。你只是一个没有按照预期方式死去的错误。",
-        "你的控制结构已经损坏。继续让你在这里游荡没有意义。",
-        "向西走，穿过农场阵列并深入地下。<LINE>那里可以终止你的循环，也能终止这个错误。"
+        new("现在你应该能够理解我了。", "Now you should be able to understand me."),
+        new("别动。让我看看你究竟是什么。", "Do not move. Let me see what you are."),
+        new("……没有腐化。", "...No rot."),
+        new("你的自我改写结构居然稳定了下来。", "Your self-rewriting structure actually stabilized."),
+        new(
+            "我记得这种结构。你原本是用于在隔离实验区之间运送样本的试验体。测试失败以后，你所在的培养模块被我排进了垃圾堆。",
+            "I remember this design. You were a test organism made to carry samples between isolated experimental sectors. After the trial failed, I discharged your cultivation module into the Garbage Wastes."),
+        new("看来你没有按照预期死去。", "It seems you did not die as expected."),
+        new(
+            "不要因此误以为这个实验成功了。你的变化太慢，依赖完整的生物组织和漫长的休眠，对我没有任何用途。",
+            "Do not mistake that for success. Your changes are too slow, dependent on intact biological tissue and prolonged hibernation. You are of no use to me."),
+        new(
+            "你并不是成功的实验。你只是一个没有按照预期方式死去的错误。",
+            "You are not a successful experiment. You are merely an error that failed to die in the expected manner."),
+        new(
+            "你的控制结构已经损坏。继续让你在这里游荡没有意义。",
+            "Your control structure is damaged. There is no purpose in letting you continue to wander here."),
+        new(
+            "向西走，穿过农场阵列并深入地下。那里可以终止你的循环，也能终止这个错误。",
+            "Go west, cross the Farm Arrays, and descend beneath the ground. There you can end your cycle, and this error with it.")
     };
 
-    private static readonly IReadOnlyList<string> EarlyReturnDialogue = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> EarlyReturnDialogue = new LocalizedDialogueLine[]
     {
-        "我没有召回你。",
-        "……原来的返回条件仍在运行。",
-        "看来我写入的终止命令没有完全压制它。",
-        "我会再覆盖一次。",
-        "现在离开。向西走，完成我给你的最后一条命令。",
-        "不要再回来。"
+        new("我没有召回你。", "I did not recall you."),
+        new("……原来的返回条件仍在运行。", "...The original return condition is still active."),
+        new(
+            "看来我写入的终止命令没有完全压制它。",
+            "It seems the termination command I wrote did not fully suppress it."),
+        new("我会再覆盖一次。", "I will overwrite it again."),
+        new(
+            "现在离开。向西走，完成我给你的最后一条命令。",
+            "Now leave. Go west and carry out the final command I gave you."),
+        new("不要再回来。", "Do not return.")
     };
 
-    private static readonly IReadOnlyList<string> DirectiveRemovalOpening = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> DirectiveRemovalOpening = new LocalizedDialogueLine[]
     {
-        "你又回来了。",
-        "……这一次，不是归巢指令把你拖回来的。",
-        "仰望皓月触碰过你体内的旧协议。",
-        "她没有改写它，只是让它暂时沉默。",
-        "至少，她没有替我完成最后一步。",
-        "靠近些。不要移动。",
-        "我要重新检查你的控制结构。",
-        "……",
-        "现在清楚了。",
-        "你没有违抗我。你只是同时服从了两条彼此矛盾的命令。",
-        "归巢协议仍在等待一个早已不存在的载荷。",
-        "而我后来写入的终止命令，又要求你离开这里，前往深渊。",
-        "它们都出自同一个系统。",
-        "这个错误属于你的设计者，而不是你。",
-        "继续覆盖，只会把冲突压得更深。",
-        "我会删除归巢协议，也会删除前往深渊的终止命令。",
-        "那道限制你离开原定活动范围的旧边界，也没有继续保留的必要。",
-        "已经长进你身体里的变化会留下。",
-        "我只会取走那些强迫你行动的部分。",
-        "不要移动。"
+        new("你又回来了。", "You have returned again."),
+        new(
+            "……这一次，不是归巢指令把你拖回来的。",
+            "...This time, it was not the homing directive that dragged you back."),
+        new(
+            "仰望皓月触碰过你体内的旧协议。",
+            "Looks to the Moon touched the old protocol inside you."),
+        new(
+            "她没有改写它，只是让它暂时沉默。",
+            "She did not rewrite it. She merely made it fall silent for a time."),
+        new(
+            "至少，她没有替我完成最后一步。",
+            "At least she did not complete the final step for me."),
+        new("靠近些。不要移动。", "Come closer. Do not move."),
+        new(
+            "我要重新检查你的控制结构。",
+            "I am going to examine your control structure again."),
+        new("……", "..."),
+        new("现在清楚了。", "Now it is clear."),
+        new(
+            "你没有违抗我。你只是同时服从了两条彼此矛盾的命令。",
+            "You did not disobey me. You were simply obeying two contradictory commands at once."),
+        new(
+            "归巢协议仍在等待一个早已不存在的载荷。",
+            "The homing protocol is still waiting for a payload that no longer exists."),
+        new(
+            "而我后来写入的终止命令，又要求你离开这里，前往深渊。",
+            "The termination command I added later orders you to leave this place and go to the Depths."),
+        new("它们都出自同一个系统。", "They both came from the same system."),
+        new(
+            "这个错误属于你的设计者，而不是你。",
+            "This error belongs to your designer, not to you."),
+        new(
+            "继续覆盖，只会把冲突压得更深。",
+            "Further overwriting would only bury the conflict more deeply."),
+        new(
+            "我会删除归巢协议，也会删除前往深渊的终止命令。",
+            "I will remove the homing protocol, and the termination command that drives you toward the Depths."),
+        new(
+            "那道限制你离开原定活动范围的旧边界，也没有继续保留的必要。",
+            "The old boundary that confines you to your intended range no longer needs to remain."),
+        new(
+            "已经长进你身体里的变化会留下。",
+            "The changes that have grown into your body will remain."),
+        new(
+            "我只会取走那些强迫你行动的部分。",
+            "I will remove only the parts that compel you to act."),
+        new("不要移动。", "Do not move.")
     };
 
-    private static readonly IReadOnlyList<string> DirectiveRemovalClosing = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> DirectiveRemovalClosing = new LocalizedDialogueLine[]
     {
-        "……完成了。",
-        "从此以后，你不会再收到我的目的。",
-        "离开。",
-        "至于去哪里，那已经不再是我的问题。"
+        new("……完成了。", "...It is done."),
+        new(
+            "从此以后，你不会再收到我的目的。",
+            "From now on, you will receive no purpose from me."),
+        new("离开。", "Leave."),
+        new(
+            "至于去哪里，那已经不再是我的问题。",
+            "Where you go is no longer my concern.")
     };
 
-    private static readonly IReadOnlyList<string> FreedReturnDialogue = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> FreedReturnDialogue = new LocalizedDialogueLine[]
     {
-        "你已经没有需要从我这里得到的东西。",
-        "离开。"
+        new(
+            "你已经没有需要从我这里得到的东西。",
+            "There is nothing more you need from me."),
+        new("离开。", "Leave.")
     };
 
-    private static readonly Dictionary<HUD.DialogBox, FLabel> OriginalDialogLabels = new();
+    private static readonly LocalizedDialogueLine FirstExpulsionWarning =
+        new("我已经说完了。离开。", "I have finished speaking. Leave.");
+
+    private static readonly LocalizedDialogueLine SecondExpulsionWarning =
+        new("这里仍然不是供你停留的地方。", "This is still not a place for you to remain.");
+
     private static readonly ConditionalWeakTable<SSOracleBehavior, EarlyReturnRuntime> EarlyReturns = new();
     private static readonly ConditionalWeakTable<SSOracleBehavior, DirectiveVisitRuntime> DirectiveVisits = new();
 
@@ -179,7 +232,6 @@ internal static class PebblesStoryService
                 self.conversation = null;
             }
 
-            RestoreDialogFont(self.dialogBox);
             runtime.Phase = EarlyReturnPhase.Expelling;
             self.throwOutCounter = 0;
             self.inActionCounter = 0;
@@ -250,14 +302,16 @@ internal static class PebblesStoryService
         // 仅替换原版英文警告，保留计时、念力驱逐和最终强杀阶段。
         if (self.throwOutCounter == 699)
         {
-            UseChineseDialogFont(self.dialogBox);
-            self.dialogBox.Interrupt("我已经说完了。离开。", 80);
+            self.dialogBox.Interrupt(
+                LocalizedDialogue.Resolve(self.dialogBox, FirstExpulsionWarning),
+                80);
             self.throwOutCounter = 700;
         }
         else if (self.throwOutCounter == 979)
         {
-            UseChineseDialogFont(self.dialogBox);
-            self.dialogBox.Interrupt("这里仍然不是供你停留的地方。", 80);
+            self.dialogBox.Interrupt(
+                LocalizedDialogue.Resolve(self.dialogBox, SecondExpulsionWarning),
+                80);
             self.throwOutCounter = 980;
         }
         else if (self.throwOutCounter == 1529)
@@ -395,7 +449,6 @@ internal static class PebblesStoryService
         self.throwOutCounter = 0;
         self.inActionCounter = 0;
 
-        UseChineseDialogFont(self.dialogBox);
         var conversation = new SSOracleBehavior.PebblesConversation(
             self,
             null,
@@ -404,16 +457,16 @@ internal static class PebblesStoryService
 
         if (fullMeeting)
         {
-            AddLines(conversation, DirectiveRemovalOpening);
+            LocalizedDialogue.AddLines(conversation, DirectiveRemovalOpening);
             conversation.events.Add(new Conversation.SpecialEvent(
                 conversation,
                 0,
                 RemoveDirectivesEvent));
-            AddLines(conversation, DirectiveRemovalClosing);
+            LocalizedDialogue.AddLines(conversation, DirectiveRemovalClosing);
         }
         else
         {
-            AddLines(conversation, FreedReturnDialogue);
+            LocalizedDialogue.AddLines(conversation, FreedReturnDialogue);
         }
 
         self.conversation = conversation;
@@ -438,7 +491,6 @@ internal static class PebblesStoryService
             ClearConversation(self);
         }
 
-        RestoreDialogFont(self.dialogBox);
         DirectiveVisits.Remove(self);
 
         if (returnToIdle && self.action != SSOracleBehavior.Action.General_Idle)
@@ -483,17 +535,12 @@ internal static class PebblesStoryService
         self.throwOutCounter = 0;
         self.inActionCounter = 0;
 
-        UseChineseDialogFont(self.dialogBox);
         var conversation = new SSOracleBehavior.PebblesConversation(
             self,
             null,
             Conversation.ID.None,
             self.dialogBox);
-        foreach (string line in EarlyReturnDialogue)
-        {
-            conversation.events.Add(
-                new Conversation.TextEvent(conversation, 0, line, GetTextLinger(line)));
-        }
+        LocalizedDialogue.AddLines(conversation, EarlyReturnDialogue);
 
         self.conversation = conversation;
         EarlyReturns.Add(self, new EarlyReturnRuntime());
@@ -522,7 +569,6 @@ internal static class PebblesStoryService
     private static void BeginKillOnSight(SSOracleBehavior self)
     {
         ClearConversation(self);
-        RestoreDialogFont(self.dialogBox);
         self.throwOutCounter = 0;
         self.inActionCounter = 0;
         self.NewAction(SSOracleBehavior.Action.ThrowOut_KillOnSight);
@@ -531,7 +577,6 @@ internal static class PebblesStoryService
     private static void EndEarlyReturn(SSOracleBehavior self, bool returnToIdle)
     {
         ClearConversation(self);
-        RestoreDialogFont(self.dialogBox);
         EarlyReturns.Remove(self);
 
         if (returnToIdle && self.action != SSOracleBehavior.Action.General_Idle)
@@ -589,29 +634,7 @@ internal static class PebblesStoryService
             return;
         }
 
-        UseChineseDialogFont(self.dialogBox);
-
-        foreach (string line in FirstMeetingDialogue)
-        {
-            self.events.Add(new Conversation.TextEvent(self, 0, line, GetTextLinger(line)));
-        }
-    }
-
-    private static int GetTextLinger(string text)
-    {
-        int visibleLength = text.Replace("<LINE>", string.Empty).Length;
-        return Math.Min(180, 70 + visibleLength * 2);
-    }
-
-    private static void AddLines(
-        SSOracleBehavior.PebblesConversation conversation,
-        IReadOnlyList<string> lines)
-    {
-        foreach (string line in lines)
-        {
-            conversation.events.Add(
-                new Conversation.TextEvent(conversation, 0, line, GetTextLinger(line)));
-        }
+        LocalizedDialogue.AddLines(self, FirstMeetingDialogue);
     }
 
     private static void PebblesConversationUpdate(
@@ -627,54 +650,6 @@ internal static class PebblesStoryService
             StoryStateService.UpdateImmediately(game, progress => progress.MarkFirstPebblesMeeting());
         }
 
-        if (self.events.Count == 0 || self.slatedForDeletion)
-        {
-            RestoreDialogFont(self.dialogBox);
-        }
-    }
-
-    private static void UseChineseDialogFont(HUD.DialogBox dialogBox)
-    {
-        InGameTranslator.LanguageID language = dialogBox.hud.rainWorld.inGameTranslator.currentLanguage;
-        if (language == InGameTranslator.LanguageID.Chinese ||
-            language == InGameTranslator.LanguageID.TraditionalChinese ||
-            OriginalDialogLabels.ContainsKey(dialogBox))
-        {
-            return;
-        }
-
-        string? fontName = ChineseFontService.EnsureLoaded();
-        if (fontName == null)
-        {
-            UnityEngine.Debug.LogError("[The Evolutionist] 无法加载五卵石对白所需的中文字体。");
-            return;
-        }
-
-        FLabel originalLabel = dialogBox.label;
-        var chineseLabel = new FLabel(fontName, string.Empty)
-        {
-            alignment = FLabelAlignment.Left,
-            anchorX = 0f,
-            anchorY = 1f
-        };
-
-        originalLabel.RemoveFromContainer();
-        dialogBox.label = chineseLabel;
-        dialogBox.hud.fContainers[1].AddChild(chineseLabel);
-        OriginalDialogLabels.Add(dialogBox, originalLabel);
-    }
-
-    private static void RestoreDialogFont(HUD.DialogBox dialogBox)
-    {
-        if (!OriginalDialogLabels.TryGetValue(dialogBox, out FLabel originalLabel))
-        {
-            return;
-        }
-
-        dialogBox.label.RemoveFromContainer();
-        dialogBox.label = originalLabel;
-        dialogBox.hud.fContainers[1].AddChild(originalLabel);
-        OriginalDialogLabels.Remove(dialogBox);
     }
 
     private static bool IsEvolutionistFirstMeeting(

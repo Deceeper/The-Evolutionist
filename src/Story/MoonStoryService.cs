@@ -12,38 +12,64 @@ internal static class MoonStoryService
     private const string SuppressReturnProtocolEvent = "EVOLUTIONIST_SUPPRESS_RETURN";
     private const int SuppressionDuration = 100;
 
-    private static readonly IReadOnlyList<string> ReturningOpening = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> ReturningOpening = new LocalizedDialogueLine[]
     {
-        "你回来了。",
-        "这一次，你应该能够理解我了。",
-        "我记得你。上次你来到这里时，我曾试着与你交谈，<LINE>但我们无法理解彼此。",
-        "请靠近一些。你身上有些东西，我上次便想仔细确认。"
+        new("你回来了。", "You have returned."),
+        new(
+            "这一次，你应该能够理解我了。",
+            "This time, you should be able to understand me."),
+        new(
+            "我记得你。上次你来到这里时，我曾试着与你交谈，但我们无法理解彼此。",
+            "I remember you. When you came here before, I tried to speak with you, but neither of us could understand the other."),
+        new(
+            "请靠近一些。你身上有些东西，我上次便想仔细确认。",
+            "Please come closer. There is something in you that I wanted to examine the last time.")
     };
 
-    private static readonly IReadOnlyList<string> FirstOpening = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> FirstOpening = new LocalizedDialogueLine[]
     {
-        "你好，小生物。",
-        "你身上带着五块卵石的印记。",
-        "可你的身体里，还留着一些比这个印记更加古老的痕迹。",
-        "请靠近一些。让我仔细看看。"
+        new("你好，小生物。", "Hello, little creature."),
+        new("你身上带着五块卵石的印记。", "You bear Five Pebbles' mark."),
+        new(
+            "可你的身体里，还留着一些比这个印记更加古老的痕迹。",
+            "But your body also carries traces far older than that mark."),
+        new("请靠近一些。让我仔细看看。", "Please come closer. Let me take a careful look.")
     };
 
-    private static readonly IReadOnlyList<string> DiagnosisBeforeSuppression = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> DiagnosisBeforeSuppression = new LocalizedDialogueLine[]
     {
-        "……原来如此。",
-        "你的身体里有一处已经愈合的空洞。<LINE>它曾是为了承载某样东西而被创造的。<LINE>如今，那件东西和承载它的容器都已经不在了，<LINE>可等待它们归来的命令仍然活着。",
-        "每当它发现自己依旧空无一物，<LINE>便会再次呼唤你回到五块卵石身边。",
-        "可在那之后，他又为你指出了另一条路。<LINE>离开他，向西，前往地下，结束自己的循环。",
-        "于是，你的身体被两根来自同一只手的线牵引。<LINE>一根将你拉回他身边，另一根却将你推向深渊。",
-        "它们都带着五块卵石留下的印记，而且扎得很深。<LINE>我可以触碰它们，却没有权力将它们彻底剪断。",
-        "我能暂时让其中一根安静下来。<LINE>它不会自行醒来，但我也无法将它从你身体里除去。"
+        new("……原来如此。", "...I see."),
+        new(
+            "你的身体里有一处已经愈合的空洞。它曾是为了承载某样东西而被创造的。如今，那件东西和承载它的容器都已经不在了，可等待它们归来的命令仍然活着。",
+            "Inside you is a hollow that has already healed. It was created to carry something. Now both that object and the vessel that held it are gone, yet the command waiting for their return remains alive."),
+        new(
+            "每当它发现自己依旧空无一物，便会再次呼唤你回到五块卵石身边。",
+            "Whenever it finds itself empty once more, it calls you back to Five Pebbles."),
+        new(
+            "可在那之后，他又为你指出了另一条路。离开他，向西，前往地下，结束自己的循环。",
+            "But afterward, he pointed you toward another path. Leave him, travel west, descend underground, and end your cycle."),
+        new(
+            "于是，你的身体被两根来自同一只手的线牵引。一根将你拉回他身边，另一根却将你推向深渊。",
+            "Thus your body is pulled by two threads tied by the same hand. One draws you back to him; the other drives you toward the Depths."),
+        new(
+            "它们都带着五块卵石留下的印记，而且扎得很深。我可以触碰它们，却没有权力将它们彻底剪断。",
+            "Both bear Five Pebbles' mark, and both are rooted deeply. I can touch them, but I do not have the authority to cut them away completely."),
+        new(
+            "我能暂时让其中一根安静下来。它不会自行醒来，但我也无法将它从你身体里除去。",
+            "I can quiet one of them for a time. It will not awaken on its own, but I cannot remove it from your body.")
     };
 
-    private static readonly IReadOnlyList<string> DiagnosisAfterSuppression = new[]
+    private static readonly IReadOnlyList<LocalizedDialogueLine> DiagnosisAfterSuppression = new LocalizedDialogueLine[]
     {
-        "这样，在你再次回到他身边以前，<LINE>你不必再被迫返回。",
-        "但如果你想真正摆脱这些牵引，<LINE>就只能回到系上它们的人面前。",
-        "是否回去，应当由你自己决定。<LINE>至少这一次，不该再由这些命令替你选择。"
+        new(
+            "这样，在你再次回到他身边以前，你不必再被迫返回。",
+            "Until you return to him again, you will no longer be forced back."),
+        new(
+            "但如果你想真正摆脱这些牵引，就只能回到系上它们的人面前。",
+            "But if you wish to be truly free of these threads, you must return to the one who tied them."),
+        new(
+            "是否回去，应当由你自己决定。至少这一次，不该再由这些命令替你选择。",
+            "Whether you go back should be your choice. This time, at least, those commands should not choose for you.")
     };
 
     private static readonly ConditionalWeakTable<SLOracleBehaviorHasMark.MoonConversation, object>
@@ -51,8 +77,6 @@ internal static class MoonStoryService
 
     private static readonly ConditionalWeakTable<SLOracleBehaviorHasMark, SuppressionRuntime>
         Suppressions = new();
-
-    private static readonly Dictionary<HUD.DialogBox, FLabel> OriginalDialogLabels = new();
 
     public static void ApplyHooks()
     {
@@ -68,11 +92,6 @@ internal static class MoonStoryService
         On.SLOracleBehaviorHasMark.SpecialEvent -= SLOracleBehaviorHasMarkSpecialEvent;
         On.SLOracleBehaviorHasMark.MoonConversation.AddEvents -= MoonConversationAddEvents;
         On.SLOracleBehaviorNoMark.Update -= SLOracleBehaviorNoMarkUpdate;
-
-        foreach (HUD.DialogBox dialogBox in new List<HUD.DialogBox>(OriginalDialogLabels.Keys))
-        {
-            RestoreDialogFont(dialogBox);
-        }
     }
 
     private static void SLOracleBehaviorNoMarkUpdate(
@@ -110,12 +129,12 @@ internal static class MoonStoryService
         }
 
         DiagnosisConversations.Add(self, new object());
-        UseChineseDialogFont(self.dialogBox);
-
-        AddLines(self, progress!.SawMoonWithoutMark ? ReturningOpening : FirstOpening);
-        AddLines(self, DiagnosisBeforeSuppression);
+        LocalizedDialogue.AddLines(
+            self,
+            progress!.SawMoonWithoutMark ? ReturningOpening : FirstOpening);
+        LocalizedDialogue.AddLines(self, DiagnosisBeforeSuppression);
         self.events.Add(new Conversation.SpecialEvent(self, 0, SuppressReturnProtocolEvent));
-        AddLines(self, DiagnosisAfterSuppression);
+        LocalizedDialogue.AddLines(self, DiagnosisAfterSuppression);
     }
 
     private static void SLOracleBehaviorHasMarkSpecialEvent(
@@ -166,8 +185,6 @@ internal static class MoonStoryService
         bool eu)
     {
         orig(self, eu);
-
-        MaintainDialogFont(self);
 
         if (!Suppressions.TryGetValue(self, out SuppressionRuntime? runtime))
         {
@@ -225,7 +242,6 @@ internal static class MoonStoryService
                 self.currentConversation = null;
             }
 
-            RestoreDialogFont(runtime.Conversation.dialogBox);
             return;
         }
 
@@ -289,92 +305,6 @@ internal static class MoonStoryService
         return loaded.MetPebblesFirstTime &&
                !loaded.MoonDiagnosisComplete &&
                !loaded.AllDirectivesRemoved;
-    }
-
-    private static void AddLines(
-        SLOracleBehaviorHasMark.MoonConversation conversation,
-        IReadOnlyList<string> lines)
-    {
-        foreach (string line in lines)
-        {
-            conversation.events.Add(
-                new Conversation.TextEvent(conversation, 0, line, GetTextLinger(line)));
-        }
-    }
-
-    private static int GetTextLinger(string text)
-    {
-        int visibleLength = text.Replace("<LINE>", string.Empty).Length;
-        return Math.Min(200, 70 + visibleLength * 2);
-    }
-
-    private static void MaintainDialogFont(SLOracleBehaviorHasMark behavior)
-    {
-        if (behavior.currentConversation is SLOracleBehaviorHasMark.MoonConversation conversation &&
-            DiagnosisConversations.TryGetValue(conversation, out _) &&
-            !conversation.slatedForDeletion && conversation.events.Count > 0 &&
-            behavior.player != null && behavior.player.room == behavior.oracle.room)
-        {
-            UseChineseDialogFont(conversation.dialogBox);
-            return;
-        }
-
-        RestoreDialogFontIfOwned(behavior);
-    }
-
-    private static void RestoreDialogFontIfOwned(SLOracleBehaviorHasMark behavior)
-    {
-        foreach (HUD.DialogBox dialogBox in new List<HUD.DialogBox>(OriginalDialogLabels.Keys))
-        {
-            if (dialogBox.hud?.rainWorld == behavior.oracle?.room?.game?.rainWorld)
-            {
-                RestoreDialogFont(dialogBox);
-            }
-        }
-    }
-
-    private static void UseChineseDialogFont(HUD.DialogBox dialogBox)
-    {
-        InGameTranslator.LanguageID language = dialogBox.hud.rainWorld.inGameTranslator.currentLanguage;
-        if (language == InGameTranslator.LanguageID.Chinese ||
-            language == InGameTranslator.LanguageID.TraditionalChinese ||
-            OriginalDialogLabels.ContainsKey(dialogBox))
-        {
-            return;
-        }
-
-        string? fontName = ChineseFontService.EnsureLoaded();
-        if (fontName == null)
-        {
-            UnityEngine.Debug.LogError("[The Evolutionist] 无法加载月姐对白所需的中文字体。");
-            return;
-        }
-
-        FLabel originalLabel = dialogBox.label;
-        var chineseLabel = new FLabel(fontName, string.Empty)
-        {
-            alignment = FLabelAlignment.Left,
-            anchorX = 0f,
-            anchorY = 1f
-        };
-
-        originalLabel.RemoveFromContainer();
-        dialogBox.label = chineseLabel;
-        dialogBox.hud.fContainers[1].AddChild(chineseLabel);
-        OriginalDialogLabels.Add(dialogBox, originalLabel);
-    }
-
-    private static void RestoreDialogFont(HUD.DialogBox dialogBox)
-    {
-        if (!OriginalDialogLabels.TryGetValue(dialogBox, out FLabel originalLabel))
-        {
-            return;
-        }
-
-        dialogBox.label.RemoveFromContainer();
-        dialogBox.label = originalLabel;
-        dialogBox.hud.fContainers[1].AddChild(originalLabel);
-        OriginalDialogLabels.Remove(dialogBox);
     }
 
     private sealed class SuppressionRuntime

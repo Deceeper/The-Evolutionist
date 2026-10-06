@@ -9,6 +9,7 @@ internal static class TongueAndGraphicsService
 {
     private static readonly Color EyeColor = new Color(224f / 255f, 121f / 255f, 88f / 255f);
     private static readonly Color TailPatternColor = new Color(237f / 255f, 242f / 255f, 245f / 255f);
+    private static readonly Color TongueColor = new Color(1f, 128f / 255f, 166f / 255f);
 
     public static void ApplyHooks()
     {
@@ -165,6 +166,7 @@ internal static class TongueAndGraphicsService
         WithSpearmasterGraphicsIdentity(GetPlayer(self), () => orig(self, sLeaser, rCam, timeStacker, camPos));
         HideLockedCosmetics(self, sLeaser);
         ApplyEvolutionistDetailColors(self, sLeaser);
+        EnsureUnlockedTongueVisible(self, sLeaser);
     }
 
     private static void PlayerGraphicsApplyPalette(
@@ -304,6 +306,36 @@ internal static class TongueAndGraphicsService
             {
                 sLeaser.sprites[i].color = TailPatternColor;
             }
+        }
+    }
+
+    private static void EnsureUnlockedTongueVisible(
+        PlayerGraphics graphics,
+        RoomCamera.SpriteLeaser? sLeaser)
+    {
+        if (sLeaser == null ||
+            graphics.owner is not Player player ||
+            player.tongue == null ||
+            (!player.tongue.Free && !player.tongue.Attached) ||
+            !EvolutionStateService.TryGet(player, out EvolutionRunState state) ||
+            !state.Current.IsUnlocked(AbilityId.Tongue))
+        {
+            return;
+        }
+
+        // 进化者以矛大师体型绘制，舌头网格位于 gownIndex 前一位。
+        int tongueSpriteIndex = graphics.gownIndex - 1;
+        if (tongueSpriteIndex < 0 ||
+            tongueSpriteIndex >= sLeaser.sprites.Length ||
+            sLeaser.sprites[tongueSpriteIndex] is not TriangleMesh tongueMesh)
+        {
+            return;
+        }
+
+        tongueMesh.isVisible = true;
+        for (int i = 0; i < tongueMesh.verticeColors.Length; i++)
+        {
+            tongueMesh.verticeColors[i] = TongueColor;
         }
     }
 

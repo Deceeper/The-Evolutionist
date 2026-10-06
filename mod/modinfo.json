@@ -1,7 +1,7 @@
 {
   "id": "decper.evolutionist",
   "name": "The Evolutionist",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": "Deceeper",
   "description": "A slugcat that permanently evolves by consuming creatures.",
   "requirements": [

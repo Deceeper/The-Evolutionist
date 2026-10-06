@@ -4,14 +4,14 @@ using Evolutionist.Story;
 
 namespace Evolutionist;
 
-/// <summary>注册模组并集中管理所有运行时钩子。</summary>
+/// 注册模组并集中管理所有运行时钩子。
 [BepInPlugin(ModId, ModName, ModVersion)]
 [BepInDependency("slime-cubed.slugbase", BepInDependency.DependencyFlags.HardDependency)]
 public sealed class Plugin : BaseUnityPlugin
 {
     public const string ModId = "decper.evolutionist";
     public const string ModName = "The Evolutionist";
-    public const string ModVersion = "0.1.0";
+    public const string ModVersion = "0.1.1";
 
     private bool initialized;
 

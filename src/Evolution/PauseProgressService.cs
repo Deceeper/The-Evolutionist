@@ -17,24 +17,24 @@ internal static class PauseProgressService
 
     private static readonly ProgressRow[] Rows =
     {
-        ProgressRow.ForAttribute("奔跑速度：", AttributeId.RunSpeed),
-        ProgressRow.ForAttribute("爬杆速度：", AttributeId.PoleClimbSpeed),
-        ProgressRow.ForAttribute("管道移动速度：", AttributeId.CorridorClimbSpeed),
-        ProgressRow.ForAttribute("跳跃高度：", AttributeId.JumpHeight),
-        ProgressRow.ForAttribute("翻滚距离：", AttributeId.RollDistance),
-        ProgressRow.ForAttribute("蓄力跳距离：", AttributeId.PounceDistance),
-        ProgressRow.ForAttribute("滑行速度：", AttributeId.SlideSpeed),
-        ProgressRow.ForAttribute("后空翻高度：", AttributeId.BackflipHeight),
-        ProgressRow.ForAttribute("游泳速度：", AttributeId.SwimSpeed),
-        ProgressRow.ForAttribute("肺活量：", AttributeId.LungCapacity),
-        ProgressRow.ForAttribute("抗眩晕能力：", AttributeId.StunResistance),
-        ProgressRow.ForAttribute("投矛伤害：", AttributeId.SpearDamage),
-        ProgressRow.ForAttribute("投矛性能：", AttributeId.SpearPerformance),
-        ProgressRow.ForAttribute("拔矛速度：", AttributeId.SpearPullSpeed),
-        ProgressRow.ForAbility("圣徒舌头：", AbilityId.Tongue),
-        ProgressRow.ForAbility("爆炸跳与爆炸格挡：", AbilityId.ExplosiveJump),
-        ProgressRow.ForAbility("活体针矛生成：", AbilityId.SpearGeneration),
-        ProgressRow.ForAbility("背部存矛：", AbilityId.BackSpear)
+        ProgressRow.ForAttribute("奔跑速度：", "Run Speed:", AttributeId.RunSpeed),
+        ProgressRow.ForAttribute("爬杆速度：", "Pole Climb Speed:", AttributeId.PoleClimbSpeed),
+        ProgressRow.ForAttribute("管道移动速度：", "Corridor Speed:", AttributeId.CorridorClimbSpeed),
+        ProgressRow.ForAttribute("跳跃高度：", "Jump Height:", AttributeId.JumpHeight),
+        ProgressRow.ForAttribute("翻滚距离：", "Roll Distance:", AttributeId.RollDistance),
+        ProgressRow.ForAttribute("蓄力跳距离：", "Pounce Distance:", AttributeId.PounceDistance),
+        ProgressRow.ForAttribute("滑行速度：", "Slide Speed:", AttributeId.SlideSpeed),
+        ProgressRow.ForAttribute("后空翻高度：", "Backflip Height:", AttributeId.BackflipHeight),
+        ProgressRow.ForAttribute("游泳速度：", "Swim Speed:", AttributeId.SwimSpeed),
+        ProgressRow.ForAttribute("肺活量：", "Lung Capacity:", AttributeId.LungCapacity),
+        ProgressRow.ForAttribute("抗眩晕能力：", "Stun Resistance:", AttributeId.StunResistance),
+        ProgressRow.ForAttribute("投矛伤害：", "Spear Damage:", AttributeId.SpearDamage),
+        ProgressRow.ForAttribute("投矛性能：", "Spear Performance:", AttributeId.SpearPerformance),
+        ProgressRow.ForAttribute("拔矛速度：", "Spear Pull Speed:", AttributeId.SpearPullSpeed),
+        ProgressRow.ForAbility("圣徒舌头：", "Saint's Tongue:", AbilityId.Tongue),
+        ProgressRow.ForAbility("爆炸跳与爆炸格挡：", "Explosion Jump & Parry:", AbilityId.ExplosiveJump),
+        ProgressRow.ForAbility("活体针矛生成：", "Needle Spear Generation:", AbilityId.SpearGeneration),
+        ProgressRow.ForAbility("背部存矛：", "Back Spear:", AbilityId.BackSpear)
     };
 
     public static void ApplyHooks()
@@ -67,15 +67,20 @@ internal static class PauseProgressService
 
         try
         {
-            string? fontName = ChineseFontService.EnsureLoaded();
+            bool useChinese = IsChineseLanguage(
+                manager.rainWorld.inGameTranslator.currentLanguage);
+            string? fontName = useChinese
+                ? ChineseFontService.EnsureLoaded()
+                : RWCustom.Custom.GetFont();
+
             if (fontName == null)
             {
                 UnityEngine.Debug.LogError(
-                    "[The Evolutionist] Chinese pause-menu font could not be loaded.");
+                    "[The Evolutionist] Pause-menu font could not be loaded.");
                 return;
             }
 
-            var panel = new ProgressPanel(self, state.Current, fontName);
+            var panel = new ProgressPanel(self, state.Current, fontName, useChinese);
             self.pages[0].Container.AddChild(panel.Container);
             Panels.Add(self, panel);
         }
@@ -127,13 +132,23 @@ internal static class PauseProgressService
         return controlledPlayerCount == 1 && EvolutionStateService.IsEvolutionist(player);
     }
 
+    private static bool IsChineseLanguage(InGameTranslator.LanguageID language)
+    {
+        return language == InGameTranslator.LanguageID.Chinese ||
+            language == InGameTranslator.LanguageID.TraditionalChinese;
+    }
+
     private sealed class ProgressPanel
     {
         private static readonly Color TrackColor = new Color(0.12f, 0.14f, 0.16f);
         private static readonly Color AttributeFillColor = new Color(0.72f, 0.88f, 0.9f);
         private static readonly Color AbilityFillColor = new Color(0.95f, 0.72f, 0.38f);
 
-        public ProgressPanel(PauseMenu menu, EvolutionProgress progress, string fontName)
+        public ProgressPanel(
+            PauseMenu menu,
+            EvolutionProgress progress,
+            string fontName,
+            bool useChinese)
         {
             Container = new FContainer();
 
@@ -150,7 +165,7 @@ internal static class PauseProgressService
                 ProgressRow row = Rows[i];
                 float y = top - i * spacing;
 
-                var label = new FLabel(fontName, row.Name)
+                var label = new FLabel(fontName, row.GetName(useChinese))
                 {
                     alignment = FLabelAlignment.Left,
                     anchorX = 0f,
@@ -203,25 +218,43 @@ internal static class PauseProgressService
         private readonly AttributeId? attribute;
         private readonly AbilityId? ability;
 
-        private ProgressRow(string name, AttributeId? attribute, AbilityId? ability)
+        private ProgressRow(
+            string chineseName,
+            string englishName,
+            AttributeId? attribute,
+            AbilityId? ability)
         {
-            Name = name;
+            ChineseName = chineseName;
+            EnglishName = englishName;
             this.attribute = attribute;
             this.ability = ability;
         }
 
-        public string Name { get; }
+        public string ChineseName { get; }
+
+        public string EnglishName { get; }
 
         public bool IsAbility => ability.HasValue;
 
-        public static ProgressRow ForAttribute(string name, AttributeId attribute)
+        public static ProgressRow ForAttribute(
+            string chineseName,
+            string englishName,
+            AttributeId attribute)
         {
-            return new ProgressRow(name, attribute, null);
+            return new ProgressRow(chineseName, englishName, attribute, null);
         }
 
-        public static ProgressRow ForAbility(string name, AbilityId ability)
+        public static ProgressRow ForAbility(
+            string chineseName,
+            string englishName,
+            AbilityId ability)
         {
-            return new ProgressRow(name, null, ability);
+            return new ProgressRow(chineseName, englishName, null, ability);
+        }
+
+        public string GetName(bool useChinese)
+        {
+            return useChinese ? ChineseName : EnglishName;
         }
 
         public float GetValue(EvolutionProgress progress)

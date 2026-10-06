@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>将当前进化进度转换为玩家属性和动作补偿。</summary>
+/// 将当前进化进度转换为玩家属性和动作补偿
 internal static class AttributeApplicationService
 {
     private const float MonkRunSpeed = 1f;
@@ -31,12 +31,12 @@ internal static class AttributeApplicationService
         On.Player.Jump += PlayerJump;
         On.Player.Stun += PlayerStun;
         On.Player.ThrowObject += PlayerThrowObject;
-        On.Weapon.Update += WeaponUpdate;
+        On.Spear.Update += SpearUpdate;
     }
 
     public static void RemoveHooks()
     {
-        On.Weapon.Update -= WeaponUpdate;
+        On.Spear.Update -= SpearUpdate;
         On.Player.ThrowObject -= PlayerThrowObject;
         On.Player.Stun -= PlayerStun;
         On.Player.Jump -= PlayerJump;
@@ -59,14 +59,29 @@ internal static class AttributeApplicationService
             return;
         }
 
+        EvolutionProgress progress = state.Current;
         Player.AnimationIndex animation = self.animation;
         int rollDirection = self.rollDirection;
         int rollCounter = self.rollCounter;
         bool longBellySlide = self.longBellySlide;
 
-        orig(self, eu);
+        // 属性强化后的长滑行仍允许在动画结束前起跳。
+        // 原版仅接受第 1～33 帧的输入，这里将第 34～39 帧映射回最后一个有效帧。
+        bool lateEnhancedSlideJump =
+            animation == Player.AnimationIndex.BellySlide &&
+            longBellySlide &&
+            Progress01(progress, AttributeId.SlideSpeed) > 0f &&
+            rollCounter >= 34 &&
+            rollCounter <= 39 &&
+            self.input[0].jmp &&
+            !self.input[1].jmp;
 
-        EvolutionProgress progress = state.Current;
+        if (lateEnhancedSlideJump)
+        {
+            self.rollCounter = 33;
+        }
+
+        orig(self, eu);
         if (animation == Player.AnimationIndex.Roll && rollDirection != 0)
         {
             float extra = Interpolate(MonkRollPropulsion, MaximumRollPropulsion,
@@ -203,20 +218,20 @@ internal static class AttributeApplicationService
 
         float performanceProgress = Progress01(progress, AttributeId.SpearPerformance);
         spear.firstChunk.vel *= Mathf.Lerp(1f, 1.2f / 0.77f, performanceProgress);
-        // 取消原版按飞行时间失效的限制，实际落地后再由 WeaponUpdate 解除投掷状态。
+        // 取消按飞行时间失效的限制，落地后由 SpearUpdate 区分普通落地与原版扎地结果。
         spear.throwModeFrames = -1;
         spear.doNotTumbleAtLowSpeed = true;
     }
 
-    private static void WeaponUpdate(On.Weapon.orig_Update orig, Weapon self, bool eu)
+    private static void SpearUpdate(On.Spear.orig_Update orig, Spear self, bool eu)
     {
         bool protectedEvolutionistSpear =
-            self is Spear &&
             self.mode == Weapon.Mode.Thrown &&
             self.doNotTumbleAtLowSpeed &&
             self.thrownBy is Player thrower &&
             EvolutionStateService.TryGet(thrower, out _);
 
+        // 先执行完整的原版矛更新，使下投矛有机会进入 StuckInWall
         orig(self, eu);
 
         if (!protectedEvolutionistSpear)
@@ -224,20 +239,24 @@ internal static class AttributeApplicationService
             return;
         }
 
-        // 矛在空中保持有效；接触地面且弹跳结束后才转为可拾取的自由状态。
-        if (self.mode == Weapon.Mode.Thrown &&
-            self.firstChunk.ContactPoint.y < 0 &&
-            self.floorBounceFrames <= 0)
-        {
-            self.doNotTumbleAtLowSpeed = false;
-            self.SetRandomSpin();
-            self.ChangeMode(Weapon.Mode.Free);
-            return;
-        }
-
+        // 原版已经完成扎墙、扎地或命中生物时，只移除飞行保护。
         if (self.mode != Weapon.Mode.Thrown)
         {
             self.doNotTumbleAtLowSpeed = false;
+            return;
+        }
+
+        if (self.firstChunk.ContactPoint.y < 0 &&
+            self.floorBounceFrames <= 0)
+        {
+            self.doNotTumbleAtLowSpeed = false;
+
+            // 只将水平落地的矛转为自由状态，保留竖直下投矛的原版扎地结果。
+            if (Mathf.Abs(self.rotation.x) >= Mathf.Abs(self.rotation.y))
+            {
+                self.SetRandomSpin();
+                self.ChangeMode(Weapon.Mode.Free);
+            }
         }
     }
 
