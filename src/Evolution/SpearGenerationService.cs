@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>实现活体针矛生成、拔取动画和成长速度。</summary>
+// 实现活体针矛生成、拔取动画和成长速度。
 internal static class SpearGenerationService
 {
     private const int InitialPullFrames = 114;

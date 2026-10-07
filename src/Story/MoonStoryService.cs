@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Evolutionist.Story;
 
-/// <summary>处理月姐初见记录、诊断对白与归巢指令压制。</summary>
+// 处理月姐初见记录、诊断对白与归巢指令压制。
 internal static class MoonStoryService
 {
     private const string SuppressReturnProtocolEvent = "EVOLUTIONIST_SUPPRESS_RETURN";

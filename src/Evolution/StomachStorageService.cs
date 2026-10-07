@@ -1,6 +1,6 @@
 namespace Evolutionist.Evolution;
 
-/// <summary>禁用进化者的胃袋存储功能。</summary>
+// 禁用进化者的胃袋存储功能。
 internal static class StomachStorageService
 {
     public static void ApplyHooks()

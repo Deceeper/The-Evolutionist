@@ -3,7 +3,7 @@ using SlugBase.Features;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>使食性与当前产矛能力的解锁状态保持同步。</summary>
+// 使食性与当前产矛能力的解锁状态保持同步。
 internal static class DietService
 {
     public static void ApplyHooks()

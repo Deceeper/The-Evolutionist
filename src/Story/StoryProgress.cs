@@ -2,7 +2,7 @@ using System;
 
 namespace Evolutionist.Story;
 
-/// <summary>可持久化的进化者专属剧情状态。</summary>
+// 可持久化的进化者专属剧情状态。
 internal sealed class StoryProgress
 {
     public const int CurrentDataVersion = 1;

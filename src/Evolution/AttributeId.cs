@@ -1,6 +1,6 @@
 namespace Evolutionist.Evolution;
 
-/// <summary>可通过进食尸体成长的普通属性。</summary>
+// 可通过进食尸体成长的普通属性。
 internal enum AttributeId
 {
     RunSpeed,

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>检测尸体最后一口，并处理满腹状态下的完整进食。</summary>
+// 检测尸体最后一口，并处理满腹状态下的完整进食。
 internal static class CorpseConsumptionService
 {
     [ThreadStatic]

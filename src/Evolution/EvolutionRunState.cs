@@ -1,6 +1,6 @@
 namespace Evolutionist.Evolution;
 
-/// <summary>区分上次雨眠进度与当前雨循环的临时进度。</summary>
+// 区分上次雨眠进度与当前雨循环的临时进度。
 internal sealed class EvolutionRunState
 {
     public EvolutionRunState(EvolutionProgress savedProgress)

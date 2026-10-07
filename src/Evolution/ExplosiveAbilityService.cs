@@ -5,7 +5,7 @@ using MonoMod.Cil;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>以 IL 补丁扩展工匠爆炸能力的入口判定。</summary>
+// 以 IL 补丁扩展工匠爆炸能力的入口判定。
 internal static class ExplosiveAbilityService
 {
     public static void ApplyHooks()

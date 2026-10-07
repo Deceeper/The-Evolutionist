@@ -1,6 +1,6 @@
 namespace Evolutionist.Story;
 
-/// <summary>写入剧情存档的稳定结局标识。</summary>
+// 写入剧情存档的稳定结局标识。
 internal static class StoryEndingType
 {
     public const string None = "None";

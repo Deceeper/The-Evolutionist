@@ -2,7 +2,7 @@ using Evolutionist.Evolution;
 
 namespace Evolutionist.Story;
 
-/// <summary>将剧情模式初始位置调整到垃圾堆安全出生点。</summary>
+// 将剧情模式初始位置调整到垃圾堆安全出生点。
 internal static class StorySpawnService
 {
     private const string StartRoom = "GW_C10";

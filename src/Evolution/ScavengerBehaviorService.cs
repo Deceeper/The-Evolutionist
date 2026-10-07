@@ -1,6 +1,6 @@
 namespace Evolutionist.Evolution;
 
-/// <summary>控制拾荒者追杀机制在产矛能力永久解锁后生效。</summary>
+// 控制拾荒者追杀机制在产矛能力永久解锁后生效。
 internal static class ScavengerBehaviorService
 {
     public static void ApplyHooks()

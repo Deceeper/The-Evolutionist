@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>一具完整尸体对应的进化收益。</summary>
+// 一具完整尸体对应的进化收益。
 internal sealed class CreatureEvolutionReward
 {
     public CreatureEvolutionReward(

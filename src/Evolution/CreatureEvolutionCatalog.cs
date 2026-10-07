@@ -4,7 +4,7 @@ using MoreSlugcats;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>登记每种可食用生物提供的属性与能力进度。</summary>
+// 登记每种可食用生物提供的属性与能力进度。
 internal static class CreatureEvolutionCatalog
 {
     private static Dictionary<CreatureTemplate.Type, CreatureEvolutionReward>? rewards;

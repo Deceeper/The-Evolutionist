@@ -5,7 +5,7 @@ using SlugBase.SaveData;
 
 namespace Evolutionist.Story;
 
-/// <summary>读取并立即保存不会随死亡回滚的剧情节点。</summary>
+// 读取并立即保存不会随死亡回滚的剧情节点。
 internal static class StoryStateService
 {
     private const string SaveKey = Plugin.ModId + ".story.v1";

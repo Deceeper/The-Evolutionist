@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>在单人暂停菜单左侧绘制无数字进度条。</summary>
+// 在单人暂停菜单左侧绘制无数字进度条。
 internal static class PauseProgressService
 {
     private const float BarWidth = 170f;

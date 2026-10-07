@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>可序列化的属性与特殊能力进度。</summary>
+// 可序列化的属性与特殊能力进度。
 internal sealed class EvolutionProgress
 {
     public const float Maximum = 100f;

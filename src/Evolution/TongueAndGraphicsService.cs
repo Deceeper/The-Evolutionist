@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>实现圣徒舌头，并复用矛大师的体型与尾部孔洞绘制。</summary>
+// 实现圣徒舌头，并复用矛大师的体型与尾部孔洞绘制。
 internal static class TongueAndGraphicsService
 {
     private static readonly Color EyeColor = new Color(224f / 255f, 121f / 255f, 88f / 255f);

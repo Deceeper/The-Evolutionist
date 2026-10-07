@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Evolutionist.Story;
 
-/// <summary>一条按游戏语言选择的中英文剧情对白。</summary>
+// 一条按游戏语言选择的中英文剧情对白。
 internal readonly struct LocalizedDialogueLine
 {
     public LocalizedDialogueLine(string chinese, string english)
@@ -18,7 +18,7 @@ internal readonly struct LocalizedDialogueLine
     public string English { get; }
 }
 
-/// <summary>按当前字体宽度将剧情对白限制为每条消息最多两行。</summary>
+// 按当前字体宽度将剧情对白限制为每条消息最多两行。
 internal static class LocalizedDialogue
 {
     private const int MaximumLinesPerMessage = 2;

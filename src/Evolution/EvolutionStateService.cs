@@ -4,7 +4,7 @@ using SlugBase.SaveData;
 
 namespace Evolutionist.Evolution;
 
-/// <summary>创建、提交、回滚并保存进化进度。</summary>
+// 创建、提交、回滚并保存进化进度。
 internal static class EvolutionStateService
 {
     public const string CharacterId = "Evolutionist";

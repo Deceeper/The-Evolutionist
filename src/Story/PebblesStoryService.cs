@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Evolutionist.Story;
 
-/// <summary>处理五卵石会面对白、驱逐流程与指令移除。</summary>
+// 处理五卵石会面对白、驱逐流程与指令移除。
 internal static class PebblesStoryService
 {
     private const string RemoveDirectivesEvent = "EVOLUTIONIST_REMOVE_DIRECTIVES";

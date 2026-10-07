@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Evolutionist.Story;
 
-/// <summary>控制外层空间业力门、结局演出与存档封存。</summary>
+// 控制外层空间业力门、结局演出与存档封存。
 internal static class StoryEndingService
 {
     private const string OuterExpanseGateRoom = "GATE_SB_OE";

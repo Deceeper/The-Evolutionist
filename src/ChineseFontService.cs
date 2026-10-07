@@ -1,8 +1,6 @@
 namespace Evolutionist;
 
-/// <summary>
-/// 为固定中文界面查找并按需加载游戏自带字体。
-/// </summary>
+// 为固定中文界面查找并按需加载游戏自带字体。
 internal static class ChineseFontService
 {
     public static string? EnsureLoaded()

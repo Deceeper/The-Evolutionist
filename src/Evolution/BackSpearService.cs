@@ -1,6 +1,6 @@
 namespace Evolutionist.Evolution;
 
-/// <summary>在解锁后启用猎手式背部存矛。</summary>
+// 在解锁后启用猎手式背部存矛。
 internal static class BackSpearService
 {
     public static void ApplyHooks()
