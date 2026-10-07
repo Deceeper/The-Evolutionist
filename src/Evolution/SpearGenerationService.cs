@@ -28,6 +28,12 @@ internal static class SpearGenerationService
     {
         orig(self, eu);
 
+        // 原版矛大师使用同一个尾部进度字段；非进化者必须完整保留原版处理结果。
+        if (!EvolutionStateService.IsEvolutionist(self))
+        {
+            return;
+        }
+
         PullState pull = PullStates.GetOrCreateValue(self);
         if (!CanGenerateSpear(self, out EvolutionRunState state))
         {
