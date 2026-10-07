@@ -11,7 +11,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string ModId = "decper.evolutionist";
     public const string ModName = "The Evolutionist";
-    public const string ModVersion = "0.1.1";
+    public const string ModVersion = "0.1.2";
 
     private bool initialized;
 
