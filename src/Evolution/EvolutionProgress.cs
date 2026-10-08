@@ -8,11 +8,13 @@ internal sealed class EvolutionProgress
 {
     public const float Maximum = 100f;
 
-    public int DataVersion { get; set; } = 1;
+    public int DataVersion { get; set; } = 2;
 
     public Dictionary<string, float> Attributes { get; set; } = new();
 
     public Dictionary<string, float> Abilities { get; set; } = new();
+
+    public List<string> DiscoveredCreatures { get; set; } = new();
 
     public float Get(AttributeId attribute)
     {
@@ -39,20 +41,40 @@ internal sealed class EvolutionProgress
         return AddValue(Abilities, ability.ToString(), amount);
     }
 
+    public void DiscoverCreature(CreatureTemplate.Type creatureType)
+    {
+        if (creatureType != null && !DiscoveredCreatures.Contains(creatureType.value))
+        {
+            DiscoveredCreatures.Add(creatureType.value);
+        }
+    }
+
+    public bool HasDiscovered(CreatureTemplate.Type creatureType)
+    {
+        return creatureType != null && DiscoveredCreatures.Contains(creatureType.value);
+    }
+
     public EvolutionProgress Clone()
     {
         return new EvolutionProgress
         {
             DataVersion = DataVersion,
             Attributes = new Dictionary<string, float>(Attributes),
-            Abilities = new Dictionary<string, float>(Abilities)
+            Abilities = new Dictionary<string, float>(Abilities),
+            DiscoveredCreatures = new List<string>(DiscoveredCreatures)
         };
     }
 
     public void Normalize()
     {
+        Attributes ??= new();
+        Abilities ??= new();
+        DiscoveredCreatures ??= new();
         NormalizeValues(Attributes);
         NormalizeValues(Abilities);
+        DiscoveredCreatures.RemoveAll(string.IsNullOrEmpty);
+        DiscoveredCreatures = new List<string>(new HashSet<string>(DiscoveredCreatures));
+        DataVersion = 2;
     }
 
     private static float GetValue(Dictionary<string, float> values, string key)
@@ -83,4 +105,3 @@ internal sealed class EvolutionProgress
         return (float)Math.Round(clamped, 1, MidpointRounding.AwayFromZero);
     }
 }
-

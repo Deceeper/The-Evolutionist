@@ -100,7 +100,7 @@ internal static class CorpseConsumptionService
 
         float templateYield = Math.Max(1, corpse.Template.meatPoints);
         float intrinsicYield = GetIntrinsicMeatYield(corpse);
-        state.ApplyCorpseReward(reward, intrinsicYield / templateYield);
+        state.ApplyCorpseReward(corpse.Template.type, reward, intrinsicYield / templateYield);
     }
 
     private static float GetIntrinsicMeatYield(Creature corpse)

@@ -13,9 +13,14 @@ internal sealed class EvolutionRunState
 
     public EvolutionProgress Current { get; private set; }
 
-    public void ApplyCorpseReward(CreatureEvolutionReward reward, float ordinaryRewardScale)
+    public void ApplyCorpseReward(
+        CreatureTemplate.Type creatureType,
+        CreatureEvolutionReward reward,
+        float ordinaryRewardScale)
     {
         bool hadSpearGeneration = Current.IsUnlocked(AbilityId.SpearGeneration);
+
+        Current.DiscoverCreature(creatureType);
 
         foreach (var attribute in reward.Attributes)
         {
@@ -45,4 +50,3 @@ internal sealed class EvolutionRunState
         Current = Saved.Clone();
     }
 }
-

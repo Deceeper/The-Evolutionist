@@ -123,6 +123,84 @@ internal static class CreatureEvolutionCatalog
         return rewards.TryGetValue(type, out reward!);
     }
 
+    public static IReadOnlyList<CreatureTemplate.Type> GetContributors(AttributeId attribute)
+    {
+        return GetContributors(reward =>
+            attribute == AttributeId.SpearPullSpeed
+                ? reward.SpearPullSpeed > 0f
+                : reward.Attributes.ContainsKey(attribute));
+    }
+
+    public static IReadOnlyList<CreatureTemplate.Type> GetContributors(AbilityId ability)
+    {
+        return GetContributors(reward => reward.Abilities.ContainsKey(ability));
+    }
+
+    public static string GetDisplayName(CreatureTemplate.Type type, bool useChinese)
+    {
+        string chinese;
+        string english;
+
+        if (type == CreatureTemplate.Type.GreenLizard) (chinese, english) = ("绿蜥蜴", "Green Lizard");
+        else if (type == CreatureTemplate.Type.PinkLizard) (chinese, english) = ("粉蜥蜴", "Pink Lizard");
+        else if (type == CreatureTemplate.Type.BlueLizard) (chinese, english) = ("蓝蜥蜴", "Blue Lizard");
+        else if (type == CreatureTemplate.Type.WhiteLizard) (chinese, english) = ("白蜥蜴", "White Lizard");
+        else if (type == CreatureTemplate.Type.BlackLizard) (chinese, english) = ("黑蜥蜴", "Black Lizard");
+        else if (type == CreatureTemplate.Type.YellowLizard) (chinese, english) = ("黄蜥蜴", "Yellow Lizard");
+        else if (type == CreatureTemplate.Type.Salamander) (chinese, english) = ("蝾螈", "Salamander");
+        else if (type == CreatureTemplate.Type.RedLizard) (chinese, english) = ("红蜥蜴", "Red Lizard");
+        else if (type == CreatureTemplate.Type.CyanLizard) (chinese, english) = ("青蜥蜴", "Cyan Lizard");
+        else if (type == DLCSharedEnums.CreatureTemplateType.SpitLizard) (chinese, english) = ("烈焰蜥蜴", "Caramel Lizard");
+        else if (type == DLCSharedEnums.CreatureTemplateType.EelLizard) (chinese, english) = ("鳗蜥蜴", "Eel Lizard");
+        else if (type == CreatureTemplate.Type.Vulture) (chinese, english) = ("秃鹫", "Vulture");
+        else if (type == CreatureTemplate.Type.KingVulture) (chinese, english) = ("魔王秃鹫", "King Vulture");
+        else if (type == DLCSharedEnums.CreatureTemplateType.MirosVulture) (chinese, english) = ("钢铁秃鹫", "Miros Vulture");
+        else if (type == CreatureTemplate.Type.Centipede) (chinese, english) = ("蜈蚣", "Centipede");
+        else if (type == CreatureTemplate.Type.RedCentipede) (chinese, english) = ("红蜈蚣", "Red Centipede");
+        else if (type == CreatureTemplate.Type.Centiwing) (chinese, english) = ("飞蜈蚣", "Centiwing");
+        else if (type == DLCSharedEnums.CreatureTemplateType.AquaCenti) (chinese, english) = ("水蜈蚣", "Aquapede");
+        else if (type == CreatureTemplate.Type.BigSpider) (chinese, english) = ("狼蛛", "Wolf Spider");
+        else if (type == CreatureTemplate.Type.SpitterSpider) (chinese, english) = ("喷吐蛛", "Spitter Spider");
+        else if (type == DLCSharedEnums.CreatureTemplateType.MotherSpider) (chinese, english) = ("母蛛", "Mother Spider");
+        else if (type == CreatureTemplate.Type.BigNeedleWorm) (chinese, english) = ("成年面条蝇", "Adult Noodlefly");
+        else if (type == CreatureTemplate.Type.MirosBird) (chinese, english) = ("钢鸟", "Miros Bird");
+        else if (type == CreatureTemplate.Type.Scavenger) (chinese, english) = ("拾荒者", "Scavenger");
+        else if (type == DLCSharedEnums.CreatureTemplateType.ScavengerElite) (chinese, english) = ("精英拾荒者", "Elite Scavenger");
+        else if (type == MoreSlugcatsEnums.CreatureTemplateType.ScavengerKing) (chinese, english) = ("拾荒酋长", "Chieftain Scavenger");
+        else if (type == CreatureTemplate.Type.LanternMouse) (chinese, english) = ("灯鼠", "Lantern Mouse");
+        else if (type == CreatureTemplate.Type.JetFish) (chinese, english) = ("鲑鱼", "Jetfish");
+        else if (type == CreatureTemplate.Type.TubeWorm) (chinese, english) = ("管虫", "Grappling Worm");
+        else if (type == DLCSharedEnums.CreatureTemplateType.Yeek) (chinese, english) = ("跃客", "Yeek");
+        else if (type == CreatureTemplate.Type.CicadaA || type == CreatureTemplate.Type.CicadaB) (chinese, english) = ("蝉乌贼", "Squidcada");
+        else if (type == CreatureTemplate.Type.EggBug) (chinese, english) = ("蛋虫", "Eggbug");
+        else if (type == MoreSlugcatsEnums.CreatureTemplateType.FireBug) (chinese, english) = ("火虫", "Firebug");
+        else if (type == CreatureTemplate.Type.Snail) (chinese, english) = ("爆炸蜗牛", "Snail");
+        else if (type == MoreSlugcatsEnums.CreatureTemplateType.SlugNPC) (chinese, english) = ("蛞蝓猫幼崽", "Slugpup");
+        else (chinese, english) = (type.value, type.value);
+
+        return useChinese ? chinese : english;
+    }
+
+    private static IReadOnlyList<CreatureTemplate.Type> GetContributors(
+        Func<CreatureEvolutionReward, bool> includesReward)
+    {
+        if (rewards == null)
+        {
+            throw new InvalidOperationException("Creature evolution catalog has not been initialized.");
+        }
+
+        var contributors = new List<CreatureTemplate.Type>();
+        foreach (KeyValuePair<CreatureTemplate.Type, CreatureEvolutionReward> entry in rewards)
+        {
+            if (includesReward(entry.Value))
+            {
+                contributors.Add(entry.Key);
+            }
+        }
+
+        return contributors;
+    }
+
     private static void Add(
         CreatureTemplate.Type type,
         Dictionary<AttributeId, float>? attributes = null,
@@ -189,4 +267,3 @@ internal static class CreatureEvolutionCatalog
         }
     }
 }
-
